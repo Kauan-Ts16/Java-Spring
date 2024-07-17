@@ -1,9 +1,8 @@
 package com.api.ParkingControlAPI.service;
 
 import com.api.ParkingControlAPI.components.validate.ParkingSpotValidate;
-import com.api.ParkingControlAPI.dto.ParkingSpotPost;
-import com.api.ParkingControlAPI.dto.ParkingSpotPut;
-import com.api.ParkingControlAPI.exception.ExceptionGeneric;
+import com.api.ParkingControlAPI.dto.post.ParkingSpotPost;
+import com.api.ParkingControlAPI.dto.put.ParkingSpotPut;
 import com.api.ParkingControlAPI.mapper.ParkingSpotMapper;
 import com.api.ParkingControlAPI.model.ParkingSpotModel;
 import com.api.ParkingControlAPI.repository.ParkingSpotRepository;

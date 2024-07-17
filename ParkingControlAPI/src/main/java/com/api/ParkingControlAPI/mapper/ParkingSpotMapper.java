@@ -1,16 +1,12 @@
 package com.api.ParkingControlAPI.mapper;
 
-import com.api.ParkingControlAPI.dto.ParkingSpotPost;
-import com.api.ParkingControlAPI.dto.ParkingSpotPut;
+import com.api.ParkingControlAPI.dto.post.ParkingSpotPost;
+import com.api.ParkingControlAPI.dto.put.ParkingSpotPut;
 import com.api.ParkingControlAPI.model.ParkingSpotModel;
-import com.api.ParkingControlAPI.service.ParkingSpotService;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.Optional;
-import java.util.UUID;
 
 public class ParkingSpotMapper {
 

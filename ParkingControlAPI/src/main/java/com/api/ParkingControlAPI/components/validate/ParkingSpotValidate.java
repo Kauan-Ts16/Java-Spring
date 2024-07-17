@@ -1,6 +1,6 @@
 package com.api.ParkingControlAPI.components.validate;
 
-import com.api.ParkingControlAPI.dto.ParkingSpotPost;
+import com.api.ParkingControlAPI.dto.post.ParkingSpotPost;
 import com.api.ParkingControlAPI.exception.ExceptionGeneric;
 import com.api.ParkingControlAPI.model.ParkingSpotModel;
 import com.api.ParkingControlAPI.repository.ParkingSpotRepository;

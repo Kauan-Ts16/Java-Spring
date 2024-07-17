@@ -1,4 +1,4 @@
-package com.api.ParkingControlAPI.dto;
+package com.api.ParkingControlAPI.dto.post;
 
 import jakarta.validation.constraints.NotBlank;
 
