@@ -16,38 +16,34 @@ import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping("/parking-spot")
+@RequestMapping("/parking-control/parking-spot")
 public class ParkingSpotController {
 
     @Autowired
     ParkingSpotService parkingSpotService;
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+
     @PostMapping
     public ResponseEntity<ParkingSpotModel> save(@RequestBody @Valid ParkingSpotPost parkingSpotPost) {
         return ResponseEntity.status(HttpStatus.CREATED).body(parkingSpotService.save(parkingSpotPost));
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping
     public ResponseEntity<ParkingSpotModel> update(@RequestBody @Valid ParkingSpotPut parkingSpotPut) {
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.update(parkingSpotPut));
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable(value = "id") UUID id) {
         parkingSpotService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @GetMapping("/{id}")
     public ResponseEntity<ParkingSpotModel> getOne(@PathVariable(value = "id") UUID id) {
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findById(id));
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @GetMapping
     public ResponseEntity<List<ParkingSpotModel>> getAll() {
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findAll());
