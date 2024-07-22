@@ -18,16 +18,17 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers(HttpMethod.POST, "/parking-control/user").permitAll()
-
                         .requestMatchers(HttpMethod.GET, "/parking-control/user/all").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/parking-control/user/{id}").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/parking-control/user/admin/{id}").hasRole("ADMIN")
-
                         .requestMatchers(HttpMethod.PUT, "/parking-control/user").hasAnyRole("ADMIN", "USER")
                         .requestMatchers(HttpMethod.GET, "/parking-control/user/{id}").hasAnyRole("ADMIN", "USER")
 
-
-
+                        .requestMatchers(HttpMethod.PUT, "/parking-control/parking-spot").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/parking-control/parking-spot/all").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/parking-control/parking-spot/{id}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/parking-control/parking-spot/{id}").hasAnyRole("ADMIN", "USER")
+                        .requestMatchers(HttpMethod.POST, "/parking-control/parking-spot").hasAnyRole("ADMIN", "USER")
 
                         .anyRequest().authenticated()
                 )
