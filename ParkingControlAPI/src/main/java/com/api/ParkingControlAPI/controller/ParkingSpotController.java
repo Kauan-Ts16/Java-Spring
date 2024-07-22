@@ -43,7 +43,7 @@ public class ParkingSpotController {
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findById(id));
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<ParkingSpotModel>> getAll() {
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findAll());
     }
