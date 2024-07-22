@@ -15,6 +15,7 @@ public class ParkingSpotValidate {
     @Autowired
     ParkingSpotRepository parkingSpotRepository;
 
+
     public void isValid(ParkingSpotPost parkingSpotPost) {
         if (existsByLicensePlateCar(parkingSpotPost.licensePlateCar())) {
             throw new ExceptionGeneric("License Plate Car Exists", "License Plate Car already exists in database", 400);
@@ -35,11 +36,6 @@ public class ParkingSpotValidate {
         }
     }
 
-    public ParkingSpotModel findById(UUID id) {
-        return parkingSpotRepository.findById(id)
-                .orElseThrow(()-> new ExceptionGeneric("Parking Spot not found!", "Parking Spot with id: "+ id +" not found.", 404));
-    }
-
     public boolean existsByLicensePlateCar(String licensePlateCar) {
         return parkingSpotRepository.existsByLicensePlateCar(licensePlateCar);
     }
@@ -51,4 +47,10 @@ public class ParkingSpotValidate {
     public boolean existsByApartmentAndBlock(String apartment, String block) {
         return parkingSpotRepository.existsByApartmentAndBlock(apartment, block);
     }
+
+    public ParkingSpotModel findById(UUID id) {
+        return parkingSpotRepository.findById(id)
+                .orElseThrow(()-> new ExceptionGeneric("Parking Spot not found!", "Parking Spot with id: "+ id +" not found.", 404));
+    }
+
 }
